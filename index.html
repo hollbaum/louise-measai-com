@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEasAI - A Digital AI Coworker for Louise</title>
     <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #ff6b6b;
+            --bg-cream: #fafaf8;
+            --bg-white: #ffffff;
+            --bg-light-blue: #e6f2ff;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --border: #e2e8f0;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,73 +25,84 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-white);
         }
 
+        /* Password Screen */
         .password-screen {
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background: #ffffff;
+            background: linear-gradient(135deg, var(--primary) 0%, #2d4a7c 100%);
         }
 
         .password-container {
             width: 100%;
-            max-width: 400px;
-            padding: 2rem;
+            max-width: 420px;
+            padding: 3rem;
             text-align: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         .password-container h1 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
-            font-weight: 600;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .password-container p {
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .password-input {
             width: 100%;
-            padding: 0.75rem;
+            padding: 0.875rem;
             font-size: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 4px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
             margin-bottom: 1rem;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
         }
 
         .password-input:focus {
             outline: none;
-            border-color: #4a90e2;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
         }
 
         .password-btn {
             width: 100%;
-            padding: 0.75rem;
+            padding: 0.875rem;
             font-size: 1rem;
-            background: #4a90e2;
+            background: var(--primary);
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
         .password-btn:hover {
-            background: #357abd;
+            background: #2d4a7c;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
         }
 
         .password-error {
             display: none;
-            color: #e74c3c;
+            color: var(--accent);
             margin-top: 1rem;
             font-size: 0.9rem;
         }
@@ -88,6 +111,7 @@
             display: block;
         }
 
+        /* Main Content */
         .main-content {
             display: none;
         }
@@ -96,27 +120,32 @@
             display: block;
         }
 
+        /* Header */
         header {
-            background: #ffffff;
-            border-bottom: 1px solid #f0f0f0;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         nav {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.5rem 2rem;
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -127,24 +156,86 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.9rem;
+            font-weight: 500;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #4a90e2;
+            color: var(--primary);
         }
 
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d4a7c 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 0.25rem;
+        }
+
+        /* Main Content */
         main {
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
         }
 
         section {
-            margin: 4rem 0;
+            padding: 4rem 2rem;
             scroll-margin-top: 80px;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-cream);
+        }
+
+        section:nth-child(odd) {
+            background: var(--bg-white);
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         h2 {
@@ -152,49 +243,154 @@
             margin-bottom: 1.5rem;
             font-weight: 600;
             line-height: 1.3;
+            color: var(--primary);
         }
 
         p {
-            margin-bottom: 1rem;
-            color: #333;
-            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+            font-size: 1.125rem;
         }
 
         ul, ol {
             margin-left: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-size: 1.0625rem;
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: var(--bg-light-blue);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-column {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+        }
+
+        .comparison-column h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .comparison-column.highlight {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.1);
+        }
+
+        /* Team Cards */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .team-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .team-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .team-card .role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d4a7c 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2rem;
-            background: #4a90e2;
+            padding: 1.125rem 2.5rem;
+            background: var(--accent);
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 8px;
             font-weight: 600;
-            margin-top: 1.5rem;
-            transition: background 0.2s;
+            font-size: 1.125rem;
+            transition: all 0.2s;
         }
 
         .cta-button:hover {
-            background: #357abd;
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
         }
 
+        /* Footer */
         footer {
-            background: #f9f9f9;
-            border-top: 1px solid #f0f0f0;
-            margin-top: 4rem;
+            background: var(--bg-cream);
+            border-top: 1px solid var(--border);
             padding: 2rem;
             text-align: center;
             font-size: 0.9rem;
-            color: #666;
+            color: var(--text-secondary);
         }
 
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -203,19 +399,37 @@
 
             .nav-links {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .stats-bar {
+                gap: 2rem;
             }
 
             h2 {
-                font-size: 1.5rem;
-            }
-
-            main {
-                padding: 1rem;
+                font-size: 1.75rem;
             }
 
             section {
-                margin: 2.5rem 0;
+                padding: 3rem 1.5rem;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -245,22 +459,120 @@
             </nav>
         </header>
 
+        <div class="hero">
+            <h1>Your Third Mind</h1>
+            <p>A Digital AI Coworker That Remembers</p>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Months</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Paying Users</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">€3.95</span>
+                    <span class="stat-label">per month</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Bootstrapped</span>
+                </div>
+            </div>
+        </div>
+
         <main>
-            <section id="intro"><h2>Welcome, Louise</h2><div id="s1">Loading...</div></section>
-            <section id="problem"><h2>The Problem</h2><div id="s2">Loading...</div></section>
-            <section id="solution"><h2>The Solution</h2><div id="s3">Loading...</div></section>
-            <section id="how"><h2>How It Works</h2><div id="s4">Loading...</div></section>
-            <section id="diff"><h2>Why It's Different</h2><div id="s5">Loading...</div></section>
-            <section id="traction"><h2>Traction</h2><div id="s6">Loading...</div></section>
-            <section id="business"><h2>The Business Model</h2><div id="s7">Loading...</div></section>
-            <section id="team"><h2>The Team</h2><div id="s8">Loading...</div></section>
-            <section id="vision"><h2>The Vision</h2><div id="s9">Loading...</div></section>
-            <section id="ask"><h2>The Ask</h2><div id="s10">Loading...</div></section>
-            <section id="academy"><h2>MEasAI Academy</h2><div id="s11">Loading...</div></section>
-            <section id="bootstrap"><h2>The Bootstrapping Story</h2><div id="s12">Loading...</div></section>
-            <section id="neurodiv"><h2>Neurodivergent Potential</h2><div id="s13">Loading...</div></section>
-            <section id="women"><h2>Women in AI</h2><div id="s14">Loading...</div></section>
+            <section id="intro">
+                <span class="section-icon">👋</span>
+                <h2>Welcome, Louise</h2>
+                <div id="s1">Loading...</div>
+            </section>
+
+            <section id="problem">
+                <span class="section-icon">🧠</span>
+                <h2>The Problem</h2>
+                <div id="s2">Loading...</div>
+            </section>
+
+            <section id="solution">
+                <span class="section-icon">🤝</span>
+                <h2>The Solution</h2>
+                <div id="s3">Loading...</div>
+            </section>
+
+            <section id="how">
+                <span class="section-icon">🎼</span>
+                <h2>How It Works</h2>
+                <div id="s4">Loading...</div>
+            </section>
+
+            <section id="diff">
+                <span class="section-icon">💎</span>
+                <h2>Why It's Different</h2>
+                <div id="s5">Loading...</div>
+            </section>
+
+            <section id="traction">
+                <span class="section-icon">📊</span>
+                <h2>Traction</h2>
+                <div id="s6">Loading...</div>
+            </section>
+
+            <section id="business">
+                <span class="section-icon">💰</span>
+                <h2>The Business Model</h2>
+                <div id="s7">Loading...</div>
+            </section>
+
+            <section id="team">
+                <span class="section-icon">👥</span>
+                <h2>The Team</h2>
+                <div id="s8">Loading...</div>
+            </section>
+
+            <section id="vision">
+                <span class="section-icon">🎯</span>
+                <h2>The Vision</h2>
+                <div id="s9">Loading...</div>
+            </section>
+
+            <section id="ask">
+                <span class="section-icon">🤝</span>
+                <h2>The Ask</h2>
+                <div id="s10">Loading...</div>
+            </section>
+
+            <section id="academy">
+                <span class="section-icon">🎓</span>
+                <h2>MEasAI Academy</h2>
+                <div id="s11">Loading...</div>
+            </section>
+
+            <section id="bootstrap">
+                <span class="section-icon">🚀</span>
+                <h2>The Bootstrapping Story</h2>
+                <div id="s12">Loading...</div>
+            </section>
+
+            <section id="neurodiv">
+                <span class="section-icon">🧩</span>
+                <h2>Neurodivergent Potential</h2>
+                <div id="s13">Loading...</div>
+            </section>
+
+            <section id="women">
+                <span class="section-icon">⚖️</span>
+                <h2>Women in AI</h2>
+                <div id="s14">Loading...</div>
+            </section>
         </main>
+
+        <div class="cta-section">
+            <h2>Ready to Talk?</h2>
+            <p>Let's have a conversation. Coffee, video call, whatever works.</p>
+            <a href="mailto:christian@measai.com" class="cta-button">Schedule a Coffee ☕</a>
+        </div>
 
         <footer>
             <p>Denne side indsamler ikke personoplysninger og bruger ingen cookies.</p>
