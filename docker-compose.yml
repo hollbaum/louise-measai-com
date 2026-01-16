@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  louise-website:
+    image: node:18-alpine
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    command: npx http-server -p 3000 -c-1
+    environment:
+      - NODE_ENV=production

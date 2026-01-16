@@ -1,0 +1,20 @@
+{
+  "name": "louise-measai-pitch-website",
+  "version": "1.0.0",
+  "description": "MEasAI pitch website for Louise Herping Ellegaard",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 3000 -c-1",
+    "dev": "http-server -p 3000 -c-1 --cors"
+  },
+  "keywords": [
+    "measai",
+    "pitch",
+    "louise"
+  ],
+  "author": "MEasAI",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
