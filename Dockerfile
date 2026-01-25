@@ -6,9 +6,7 @@ RUN apk add --no-cache apache2-utils
 # Copy static website files
 COPY index.html /usr/share/nginx/html/
 COPY content.json /usr/share/nginx/html/
-COPY styles.css /usr/share/nginx/html/ 2>/dev/null || true
-COPY script.js /usr/share/nginx/html/ 2>/dev/null || true
-COPY *.png /usr/share/nginx/html/ 2>/dev/null || true
+COPY louise-portrait.jpg /usr/share/nginx/html/
 
 # Copy nginx configuration with Basic Auth
 COPY nginx.conf /etc/nginx/conf.d/default.conf
