@@ -31,96 +31,6 @@
             background: var(--bg-white);
         }
 
-        /* Password Screen */
-        .password-screen {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, #2d4a7c 100%);
-        }
-
-        .password-container {
-            width: 100%;
-            max-width: 420px;
-            padding: 3rem;
-            text-align: center;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        .password-container h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .password-container p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 1rem;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 0.875rem;
-            font-size: 1rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            transition: all 0.2s;
-        }
-
-        .password-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
-        }
-
-        .password-btn {
-            width: 100%;
-            padding: 0.875rem;
-            font-size: 1rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .password-btn:hover {
-            background: #2d4a7c;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
-        }
-
-        .password-error {
-            display: none;
-            color: var(--accent);
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .password-error.show {
-            display: block;
-        }
-
-        /* Main Content */
-        .main-content {
-            display: none;
-        }
-
-        .main-content.unlocked {
-            display: block;
-        }
-
         /* Header */
         header {
             background: var(--bg-white);
@@ -439,167 +349,141 @@
     </style>
 </head>
 <body>
-    <div class="password-screen" id="passwordScreen">
-        <div class="password-container">
-            <h1>MEasAI</h1>
-            <p>A private pitch for Louise</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password" />
-            <button class="password-btn" onclick="checkPassword()">Access</button>
-            <div class="password-error" id="passwordError">Incorrect password. Try again.</div>
-        </div>
-    </div>
+    <header>
+        <nav>
+            <div class="logo">MEasAI</div>
+            <ul class="nav-links">
+                <li><a href="#intro">Intro</a></li>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#traction">Traction</a></li>
+                <li><a href="#ask">The Ask</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="main-content" id="mainContent">
-        <header>
-            <nav>
-                <div class="logo">MEasAI</div>
-                <ul class="nav-links">
-                    <li><a href="#intro">Intro</a></li>
-                    <li><a href="#problem">Problem</a></li>
-                    <li><a href="#solution">Solution</a></li>
-                    <li><a href="#traction">Traction</a></li>
-                    <li><a href="#ask">The Ask</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <div class="hero">
-            <h1>Your Third Mind</h1>
-            <p>A Digital AI Coworker That Remembers</p>
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Months</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">6</span>
-                    <span class="stat-label">Paying Users</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">€3.95</span>
-                    <span class="stat-label">per month</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Bootstrapped</span>
-                </div>
+    <div class="hero">
+        <h1>Your Third Mind</h1>
+        <p>A Digital AI Coworker That Remembers</p>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Months</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Paying Users</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">€3.95</span>
+                <span class="stat-label">per month</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Bootstrapped</span>
             </div>
         </div>
-
-        <main>
-            <section id="intro">
-                <span class="section-icon">👋</span>
-                <h2>Welcome, Louise</h2>
-                <div id="s1">Loading...</div>
-            </section>
-
-            <section id="problem">
-                <span class="section-icon">🧠</span>
-                <h2>The Problem</h2>
-                <div id="s2">Loading...</div>
-            </section>
-
-            <section id="solution">
-                <span class="section-icon">🤝</span>
-                <h2>The Solution</h2>
-                <div id="s3">Loading...</div>
-            </section>
-
-            <section id="how">
-                <span class="section-icon">🎼</span>
-                <h2>How It Works</h2>
-                <div id="s4">Loading...</div>
-            </section>
-
-            <section id="diff">
-                <span class="section-icon">💎</span>
-                <h2>Why It's Different</h2>
-                <div id="s5">Loading...</div>
-            </section>
-
-            <section id="traction">
-                <span class="section-icon">📊</span>
-                <h2>Traction</h2>
-                <div id="s6">Loading...</div>
-            </section>
-
-            <section id="business">
-                <span class="section-icon">💰</span>
-                <h2>The Business Model</h2>
-                <div id="s7">Loading...</div>
-            </section>
-
-            <section id="team">
-                <span class="section-icon">👥</span>
-                <h2>The Team</h2>
-                <div id="s8">Loading...</div>
-            </section>
-
-            <section id="vision">
-                <span class="section-icon">🎯</span>
-                <h2>The Vision</h2>
-                <div id="s9">Loading...</div>
-            </section>
-
-            <section id="ask">
-                <span class="section-icon">🤝</span>
-                <h2>The Ask</h2>
-                <div id="s10">Loading...</div>
-            </section>
-
-            <section id="academy">
-                <span class="section-icon">🎓</span>
-                <h2>MEasAI Academy</h2>
-                <div id="s11">Loading...</div>
-            </section>
-
-            <section id="bootstrap">
-                <span class="section-icon">🚀</span>
-                <h2>The Bootstrapping Story</h2>
-                <div id="s12">Loading...</div>
-            </section>
-
-            <section id="neurodiv">
-                <span class="section-icon">🧩</span>
-                <h2>Neurodivergent Potential</h2>
-                <div id="s13">Loading...</div>
-            </section>
-
-            <section id="women">
-                <span class="section-icon">⚖️</span>
-                <h2>Women in AI</h2>
-                <div id="s14">Loading...</div>
-            </section>
-        </main>
-
-        <div class="cta-section">
-            <h2>Ready to Talk?</h2>
-            <p>Let's have a conversation. Coffee, video call, whatever works.</p>
-            <a href="mailto:christian@measai.com" class="cta-button">Schedule a Coffee ☕</a>
-        </div>
-
-        <footer>
-            <p>Denne side indsamler ikke personoplysninger og bruger ingen cookies.</p>
-            <p>© 2026 MEasAI innovations</p>
-        </footer>
     </div>
 
+    <main>
+        <section id="intro">
+            <span class="section-icon">👋</span>
+            <h2>Welcome, Louise</h2>
+            <div id="s1">Loading...</div>
+        </section>
+
+        <section id="problem">
+            <span class="section-icon">🧠</span>
+            <h2>The Problem</h2>
+            <div id="s2">Loading...</div>
+        </section>
+
+        <section id="solution">
+            <span class="section-icon">🤝</span>
+            <h2>The Solution</h2>
+            <div id="s3">Loading...</div>
+        </section>
+
+        <section id="how">
+            <span class="section-icon">🎼</span>
+            <h2>How It Works</h2>
+            <div id="s4">Loading...</div>
+        </section>
+
+        <section id="diff">
+            <span class="section-icon">💎</span>
+            <h2>Why It's Different</h2>
+            <div id="s5">Loading...</div>
+        </section>
+
+        <section id="traction">
+            <span class="section-icon">📊</span>
+            <h2>Traction</h2>
+            <div id="s6">Loading...</div>
+        </section>
+
+        <section id="business">
+            <span class="section-icon">💰</span>
+            <h2>The Business Model</h2>
+            <div id="s7">Loading...</div>
+        </section>
+
+        <section id="team">
+            <span class="section-icon">👥</span>
+            <h2>The Team</h2>
+            <div id="s8">Loading...</div>
+        </section>
+
+        <section id="vision">
+            <span class="section-icon">🎯</span>
+            <h2>The Vision</h2>
+            <div id="s9">Loading...</div>
+        </section>
+
+        <section id="ask">
+            <span class="section-icon">🤝</span>
+            <h2>The Ask</h2>
+            <div id="s10">Loading...</div>
+        </section>
+
+        <section id="academy">
+            <span class="section-icon">🎓</span>
+            <h2>MEasAI Academy</h2>
+            <div id="s11">Loading...</div>
+        </section>
+
+        <section id="bootstrap">
+            <span class="section-icon">🚀</span>
+            <h2>The Bootstrapping Story</h2>
+            <div id="s12">Loading...</div>
+        </section>
+
+        <section id="neurodiv">
+            <span class="section-icon">🧩</span>
+            <h2>Neurodivergent Potential</h2>
+            <div id="s13">Loading...</div>
+        </section>
+
+        <section id="women">
+            <span class="section-icon">⚖️</span>
+            <h2>Women in AI</h2>
+            <div id="s14">Loading...</div>
+        </section>
+    </main>
+
+    <div class="cta-section">
+        <h2>Ready to Talk?</h2>
+        <p>Let's have a conversation. Coffee, video call, whatever works.</p>
+        <a href="mailto:christian@measai.com" class="cta-button">Schedule a Coffee ☕</a>
+    </div>
+
+    <footer>
+        <p>Denne side indsamler ikke personoplysninger og bruger ingen cookies.</p>
+        <p>© 2026 MEasAI innovations</p>
+    </footer>
+
     <script>
-        const PASSWORD = 'LØVINDE2026';
-
-        function checkPassword() {
-            const input = document.getElementById('passwordInput').value;
-            if (input === PASSWORD) {
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('mainContent').classList.add('unlocked');
-                loadContent();
-                sessionStorage.setItem('louise-unlocked', 'true');
-            } else {
-                document.getElementById('passwordError').classList.add('show');
-                document.getElementById('passwordInput').value = '';
-            }
-        }
-
+        // HTTP Basic Auth handles authentication - no client-side password needed
         function loadContent() {
             fetch('content.json')
                 .then(r => r.json())
@@ -612,15 +496,8 @@
                 .catch(e => console.warn('Content loading...'));
         }
 
-        document.getElementById('passwordInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') checkPassword();
-        });
-
-        if (sessionStorage.getItem('louise-unlocked') === 'true') {
-            document.getElementById('passwordScreen').style.display = 'none';
-            document.getElementById('mainContent').classList.add('unlocked');
-            loadContent();
-        }
+        // Load content immediately on page load
+        loadContent();
     </script>
 </body>
 </html>
